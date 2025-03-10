@@ -40,8 +40,12 @@ public class Conversions {
         return Integer.parseInt(val);
     }
 
+    /*
+    A method that converts the given integer to a string.
+    Super straightforward, we use the Integer wrapper class's toString method to convert the integer to a string.
+     */
     public String integerToString(int val) {
-        return "";
+        return Integer.toString(val);
     }
 
     public String switchCase() {
