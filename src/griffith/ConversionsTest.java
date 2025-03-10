@@ -20,8 +20,8 @@ public class ConversionsTest {
     @Test
     public void testEuroToDollarNeg() {
         Conversions conversions = new Conversions();
-        assertThrows(IllegalArgumentException.class, () -> {
-            conversions.euroToDollar(-1);
+        assertThrows(IllegalArgumentException.class, () -> { // here I used a lambda expression
+            conversions.euroToDollar(-1); // it calls the euroToDollar method with -1 as an argument and expects an IllegalArgumentException
         });
     }
 
@@ -35,5 +35,36 @@ public class ConversionsTest {
     public void testEuroToDollarBigVal() {
         Conversions conversions = new Conversions();
         assertEquals(1080000.0, conversions.euroToDollar(1000000), 0.01);
+    }
+
+    /*
+        Test cases for dollarToEuro method, assuming the conversion rate is 0.93(rounded from 0.9259)
+        Same as for euroToDollar, the negative test case expects an IllegalArgumentException.
+     */
+
+    @Test
+    public void testDollarToEuroPos() {
+        Conversions conversions = new Conversions();
+        assertEquals(0.93, conversions.dollarToEuro(1), 0.01);
+    }
+
+    @Test
+    public void testDollarToEuroNeg() {
+        Conversions conversions = new Conversions();
+        assertThrows(IllegalArgumentException.class, () -> { // same lambda expression is used as in the euroToDollar test case
+            conversions.dollarToEuro(-1);
+        });
+    }
+
+    @Test
+    public void testDollarToEuroZero() {
+        Conversions conversions = new Conversions();
+        assertEquals(0.0, conversions.dollarToEuro(0), 0.01);
+    }
+
+    @Test
+    public void testDollarToEuroBigVal() {
+        Conversions conversions = new Conversions();
+        assertEquals(1148147.31, conversions.dollarToEuro(1234567), 0.01);
     }
 }
