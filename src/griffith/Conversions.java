@@ -12,8 +12,14 @@ public class Conversions {
         return euro*1.08;
     }
 
+    /*
+    Same as euroToDollar essentially, except the conversion rate is 0.93(rounded from 0.9259).
+     */
     public double dollarToEuro(double dollar) {
-        return 0.0;
+        if (dollar < 0) {
+            throw new IllegalArgumentException("The currency amount can't be negative.");
+        }
+        return dollar*0.93;
     }
 
     public int stringToInteger(String val) {
