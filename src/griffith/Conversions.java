@@ -1,3 +1,6 @@
+/*
+Ilia Klodin - 3146179
+ */
 package griffith;
 
 public class Conversions {
@@ -49,6 +52,14 @@ public class Conversions {
     }
 
     public String switchCase(String inputString) {
-        return "";
+        char[] arr = inputString.toCharArray(); // Convert the string to a char array
+        for (int i = 0; i < arr.length; i++) { // iterate through the array
+            if (arr[i] >= 'a' && arr[i] <= 'z') { // if the character is a lowercase letter
+                arr[i] = Character.toUpperCase(arr[i]); // convert it to uppercase
+            } else if (arr[i] >= 'A' && arr[i] <= 'Z') { // if the character is an uppercase letter
+                arr[i] = Character.toLowerCase(arr[i]); // convert it to lowercase
+            }
+        }
+        return new String(arr); // return the modified char array as a string
     }
 }
