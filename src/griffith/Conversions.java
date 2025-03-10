@@ -22,8 +22,22 @@ public class Conversions {
         return dollar*0.93;
     }
 
+    /*
+    Method that converts the given string to an integer.
+    It throws a NumberFormatException if the string contains any character other than digits.
+    The only exception allowed is a negative sign at the beginning of the string.
+     */
     public int stringToInteger(String val) {
-        return 0;
+        char[] arr = val.toCharArray(); // Convert the string to a char array
+        for (int i = 0; i < arr.length; i++) { // iterate through the array
+            if (i == 0 && arr[i] == '-') {
+                continue; // allow negative sign at the beginning if it occurs
+            }
+            if (arr[i] < '0' || arr[i] > '9') { // if the character is not a digit
+                throw new NumberFormatException("The string must contain only digits."); // throw a NumberFormatException
+            }
+        }
+        return Integer.parseInt(val);
     }
 
     public String integerToString(int val) {
