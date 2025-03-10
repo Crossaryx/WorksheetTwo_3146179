@@ -48,7 +48,7 @@ public class Conversions {
         return Integer.toString(val);
     }
 
-    public String switchCase() {
+    public String switchCase(String inputString) {
         return "";
     }
 }

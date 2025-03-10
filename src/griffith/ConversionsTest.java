@@ -124,5 +124,42 @@ public class ConversionsTest {
         assertEquals("0", conversions.integerToString(0));
     }
 
+    /*
+    Test cases for switchCase method.
+    If an empty string is passed as an argument, the method should return an empty string.
+    If non-letter characters are passed, the method should return the same string.
+    Otherwise, the method should return the string with the case of its letters switched.
+     */
+
+    @Test
+    public void testSwitchCaseAllLower() {
+        Conversions conversions = new Conversions();
+        assertEquals("SUP", conversions.switchCase("sup"));
+    }
+
+    @Test
+    public void testSwitchCaseAllUpper() {
+        Conversions conversions = new Conversions();
+        assertEquals("dude", conversions.switchCase("DUDE"));
+    }
+
+    @Test
+    public void testSwitchCaseMixed() {
+        Conversions conversions = new Conversions();
+        assertEquals("RaNdOm StUFF", conversions.switchCase("rAnDoM sTuff"));
+    }
+
+    @Test
+    public void testSwitchCaseEmpty() {
+        Conversions conversions = new Conversions();
+        assertEquals("", conversions.switchCase(""));
+    }
+
+    @Test
+    public void testSwitchCaseNonLetters() {
+        Conversions conversions = new Conversions();
+        assertEquals("6613135*(#@!", conversions.switchCase("6613135*(#@!"));
+    }
+
 
 }
