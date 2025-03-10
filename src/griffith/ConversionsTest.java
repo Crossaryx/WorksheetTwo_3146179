@@ -67,4 +67,38 @@ public class ConversionsTest {
         Conversions conversions = new Conversions();
         assertEquals(1148147.31, conversions.dollarToEuro(1234567), 0.01);
     }
+
+    /*
+        Test cases for stringToInteger method.
+        The method should convert the given string to an integer.
+        If the string does not correspond to a valid integer, it should throw a NumberFormatException.
+     */
+
+    @Test
+    public void testStringToIntegerValid() {
+        Conversions conversions = new Conversions();
+        assertEquals(123, conversions.stringToInteger("123"));
+    }
+
+    @Test
+    public void testStringToIntegerNegative() {
+        Conversions conversions = new Conversions();
+        assertEquals(-456, conversions.stringToInteger("-456"));
+    }
+
+    @Test
+    public void testStringToIntegerZero() {
+        Conversions conversions = new Conversions();
+        assertEquals(0, conversions.stringToInteger("0"));
+    }
+
+    @Test
+    public void testStringToIntegerInvalid() {
+        Conversions conversions = new Conversions();
+        assertThrows(NumberFormatException.class, () -> { // again, a lambda expression is used for test case
+            conversions.stringToInteger("abc");      // where an exception is expected as an output
+        });
+    }
+
+
 }
