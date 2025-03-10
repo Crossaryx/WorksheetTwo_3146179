@@ -100,5 +100,29 @@ public class ConversionsTest {
         });
     }
 
+    /*
+        Test cases for integerToString method.
+        The method should convert the given integer to a string.
+        Fairly straightforward, I haven't come up with any test cases that would expect an exception.
+     */
+
+    @Test
+    public void testIntegerToStringPositive() {
+        Conversions conversions = new Conversions();
+        assertEquals("123", conversions.integerToString(123));
+    }
+
+    @Test
+    public void testIntegerToStringNegative() {
+        Conversions conversions = new Conversions();
+        assertEquals("-456", conversions.integerToString(-456));
+    }
+
+    @Test
+    public void testIntegerToStringZero() {
+        Conversions conversions = new Conversions();
+        assertEquals("0", conversions.integerToString(0));
+    }
+
 
 }
